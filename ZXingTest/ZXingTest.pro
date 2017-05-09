@@ -11,7 +11,6 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = ZXingTest
 TEMPLATE = app
 
-LIBS += -L$$PWD/lib -lQZXing2
 
 
 SOURCES += main.cpp\
@@ -22,3 +21,8 @@ HEADERS  += zxingtest.h \
     QZXing_global.h
 
 FORMS    += zxingtest.ui
+
+macx: LIBS += -L$$PWD/Frameworks/ -lQZXing.1.0.0
+
+INCLUDEPATH += $$PWD/Frameworks
+DEPENDPATH += $$PWD/Frameworks
