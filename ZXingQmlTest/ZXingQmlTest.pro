@@ -16,6 +16,7 @@ QML_IMPORT_PATH = $QTDIR/qml
 include(deployment.pri)
 
 macx: LIBS += -L$$PWD/Frameworks/ -lQZXing.1.0.0
+win32: LIBS += -L$$PWD/lib/ -lQZXing2
 
 INCLUDEPATH += $$PWD/Frameworks
 DEPENDPATH += $$PWD/Frameworks

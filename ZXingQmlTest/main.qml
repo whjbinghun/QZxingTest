@@ -1,4 +1,4 @@
-import QtQuick 2.5
+﻿import QtQuick 2.5
 import QtQuick.Window 2.2
 import QtQuick.Dialogs 1.2
 import QtQuick.Controls 1.4
@@ -18,6 +18,7 @@ Window {
         spacing: 20
         Image {
             id: imageViewer
+            anchors.horizontalCenter: parent.horizontalCenter
             width: 140
             height: 140
             source: ""
@@ -36,9 +37,10 @@ Window {
                 }
             }
 
-            TextInput {
+            Text {
                 id: text_image_path
-                width: 200
+                //anchors.left: btn_import_image.left
+                width: 100
                 height: 30
             }
         }
@@ -52,10 +54,11 @@ Window {
                 height: 30
             }
 
-            TextField {
+            Text {
                 id: text_image_content
                 width: 300
                 height: 200
+                wrapMode: Text.WordWrap
             }
         }
 
@@ -69,12 +72,12 @@ Window {
         selectedNameFilter: "Image Files(*.jpg *.png *bmp)"
         selectMultiple: false
         onAccepted: {
-            /*imageViewer.source = file_dialog.fileUrl[0]
-            var imageFile = new String( file_dialog.fileUrl[0] )
-            imagePath.text = imageFile.slice(8)
+            imageViewer.source = file_dialog.fileUrls[0]
+            var imageFile = new String( file_dialog.fileUrls[0] )
+            text_image_path.text = imageFile.slice(8)
 
-            var str_image_content = zxing_qml.get_image_content(  file_dialog.fileUrl[0] )
-            text_image_content.text = str_image_content;*/
+            var str_image_content = zxing_qml.get_image_content(  file_dialog.fileUrls[0] )
+            text_image_content.text = str_image_content;
         }
     }
 }
